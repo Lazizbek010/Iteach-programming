@@ -1,0 +1,163 @@
+*::after,*::before,*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    list-style: none;
+    text-decoration: none;
+    font-family: $font;
+}
+
+.container{
+    max-width: 1220px;
+    margin: 0 auto;
+    padding: 0 10px;
+}
+
+button {
+    border: none;
+    outline: none;
+    background: none;
+}
+
+.bg{
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    background: #121421;
+    z-index: -10;
+    &::before{
+        content: "";
+        width: 100px;
+        height: 100px;
+        position: absolute;
+        z-index: -9;
+        top: 200px;
+        left: 500px;
+        background: rgba($color: $pr-color, $alpha: 0.5);
+        border-radius: 50%;
+        filter: blur(10px);
+        box-shadow: 0 0 300px 200px rgba($color: $pr-color, $alpha: 0.5);
+    }
+    &::after{
+        content: '';
+        position: absolute;
+        z-index: -8;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        backdrop-filter: blur(15px);
+        background: rgba($color: #000000, $alpha: 0.5);
+    }
+    .circle{
+        border-radius: 50%;
+        position: absolute;
+        z-index: -7;
+        background: #111926;
+        animation: move 60s linear infinite alternate;
+        &:nth-child(1){
+            background: #111E24;
+            width: 179px;
+            height: 179px;
+            top: 200px;
+            left: 100px;
+        }
+        &:nth-child(2){
+            width: 304px;
+            height: 304px;
+            top: 800px;
+            left: 200px;
+            animation-delay: -10s;
+        }
+        &:nth-child(3){
+            background: #132029;
+            width: 215px;
+            height: 215px;
+            top: 800px;
+            left: 400px;
+            animation-delay: -20s;
+        }
+        &:nth-child(4){
+            width: 362px;
+            height: 362px;
+            top: 300px;
+            right: 800px;
+            animation-delay: -30s;
+            animation-name: move2;
+        }
+        &:nth-child(5){
+            background: #112125;
+            width: 183px;
+            height: 183px;
+            top: 0;
+            right: 0;
+            animation-delay: -40s;
+            animation-name: move2;
+        }
+        &:nth-child(6){
+            background: #0C242B;
+            width: 274px;
+            height: 274px;
+            top: 0;
+            right: 0;
+            animation-delay: -50s;
+            animation-name: move2;
+        }
+    }
+}
+
+@keyframes move {
+    0%{
+        top: 200px;
+        left: 100px;
+    }
+    20%{
+        top: 600px;
+        left: -50px;
+    }
+    40%{
+        top: 300px;
+        left: 600px;
+    }
+    60%{
+        top: 200px;
+        left: 200px;
+    }
+    80%{
+        top: 800px;
+        left: 600px;
+    }
+    100%{
+        top: 50px;
+        left: 50px;
+    }
+}
+
+@keyframes move2 {
+    0%{
+        top: 200px;
+        right: 100px;
+    }
+    20%{
+        top: 600px;
+        right: -50px;
+    }
+    40%{
+        top: 300px;
+        right: 600px;
+    }
+    60%{
+        top: 200px;
+        right: 100px;
+    }
+    80%{
+        top: 800px;
+        right: 600px;
+    }
+    100%{
+        top: 200px;
+        right: 50px;
+    }
+}

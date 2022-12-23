@@ -1,29 +1,78 @@
 <template>
-  <nav>
-    <router-link to="/">Home</router-link> |
-  </nav>
-  <router-view/>
+  <div class="app">
+    <div class="bg">
+      <div class="circle" v-for="(item, i) in 6" :key="`circle${i}`"></div>
+    </div>
+    <nav class="nav">
+      <div class="container">
+        <div class="nav-menu">
+          <router-link class="logo" :to="{ name: 'home' }">
+            <img src="/images/logo.svg" alt="" />
+          </router-link>
+          <div class="menu">
+            <button
+              class="hamburger"
+              :class="{ open: menuOpen }"
+              @click.prevent="openMenu()"
+            >
+              <span></span><span></span><span></span>
+            </button>
+            <ul :class="{'open': menuOpen}">
+              <li><a class="active" href="#">Asosiy</a></li>
+              <li><a href="#">Xizmatlar</a></li>
+              <li><a href="#">Ish jarayoni</a></li>
+              <li><a href="#">Portfolio</a></li>
+              <li><a href="#">Kadrlar</a></li>
+              <li><a href="#">Mijozlar fikri</a></li>
+              <li><a href="#">Hamkorlar</a></li>
+            </ul>
+          </div>
+        </div>
+        <div class="nav-options">
+          <div class="calc">
+            <img src="/images/calc.svg" alt="calc icon" />
+            Kalkulyator
+          </div>
+          <a class="phone" href="tel:998906310977">
+            <img src="/images/phone.svg" alt="phone icon" />
+            +998906310977
+          </a>
+          <div class="lang">
+            <div class="current" @click="openLangs()">
+              <img src="/images/Globus.svg" alt="" />
+              UZ
+              <img src="/images/Arrow down.svg" alt="" />
+            </div>
+            <div class="others" :class="{open: langsOpen}">
+              <button>RU</button>
+              <button>EN</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </nav>
+  </div>
+  <!-- <router-view /> -->
 </template>
 
-<style lang="scss">
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-}
+<script>
+export default {
+  name: "App",
+  data() {
+    return {
+      menuOpen: false,
+      langsOpen: false,
+    };
+  },
+  methods: {
+    openMenu() {
+      this.menuOpen = !this.menuOpen;
+    },
+    openLangs() {
+      this.langsOpen = !this.langsOpen;
+    },
+  },
+};
+</script>
 
-nav {
-  padding: 30px;
 
-  a {
-    font-weight: bold;
-    color: #2c3e50;
-
-    &.router-link-exact-active {
-      color: #42b983;
-    }
-  }
-}
-</style>
