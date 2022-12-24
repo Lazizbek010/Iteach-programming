@@ -1,7 +1,12 @@
 <template>
   <div class="app">
     <div class="bg">
+      <div class="circles">
       <div class="circle" v-for="(item, i) in 6" :key="`circle${i}`"></div>
+      </div>
+      <div class="back">
+        <div class="blur" v-for="(item, i) in 3" :key="`blur${i}`"></div>
+      </div>
     </div>
     <nav class="nav">
       <div class="container">
